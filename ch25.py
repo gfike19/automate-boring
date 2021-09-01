@@ -1,6 +1,6 @@
 import re
 
-# match 1 or one times = ?
+# match a group 1 or one times = ?
 # batRegex = re.compile(r'Bat(wo)?man')
 # mo = batRegex.search('The Adventures of Batman')
 # print(mo.group())
@@ -25,8 +25,18 @@ phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
 # * star aka wildcard matach 0 or more times
 batRegex = re.compile(r'Bat(wo)*man')
 mo = batRegex.search('The Adventures of Batman')
-print(mo.group())
+# print(mo.group())
 mo = batRegex.search('The Adventures of Batwoman')
-print(mo.group())
+# print(mo.group())
 mo = batRegex.search('The Adventures of Batwowowoman')
-print(mo.group())
+# print(mo.group())
+
+# + means match 1 or more times
+# group preceeding + must be present or else will return None
+batRegex = re.compile(r'Bat(wo)+man')
+mo1 = batRegex.search('The Adventures of Batwoman')
+# print(mo1.group())
+mo2 = batRegex.search('The Adventues of Batwowowowoman')
+# print(mo2.group())
+mo3 = batRegex.search('The Adventures of Batman')
+# print(mo3.group() == None)
