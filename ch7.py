@@ -24,14 +24,14 @@ phoneNumberRegex = re.compile('\d\d\d-\d\d\d-\d\d\d\d')
 mo = phoneNumberRegex.search(message)
 # mo.group() holds text that was found first
 # print(mo.group())
-print(phoneNumberRegex.findall(message))
+# print(phoneNumberRegex.findall(message))
 # above will return list of all matches found
 
 # match 1 or one times = ?
-# batRegex = re.compile(r'Bat(wo)?man')
-# mo = batRegex.search('The Adventures of Batman')
+batRegex = re.compile(r'Bat(wo)?man')
+mo = batRegex.search('The Adventures of Batman')
 # print(mo.group())
-# mo = batRegex.search('The Adventures of Batwoman')
+mo = batRegex.search('The Adventures of Batwoman')
 # print(mo.group())
 
 phoneRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
@@ -52,8 +52,31 @@ phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
 # * star aka wildcard matach 0 or more times
 batRegex = re.compile(r'Bat(wo)*man')
 mo = batRegex.search('The Adventures of Batman')
-print(mo.group())
+# print(mo.group())
 mo = batRegex.search('The Adventures of Batwoman')
-print(mo.group())
+# print(mo.group())
 mo = batRegex.search('The Adventures of Batwowowoman')
-print(mo.group())
+# print(mo.group())
+
+# curly braces used for specific amount
+haRegex = re.compile(r'(Ha){3}')
+# print(haRegex.search('He said "HaHaHa'))
+# above returns true
+
+# can add in a second number for a range
+haRegex = re.compile(r'(Ha){3,5}')
+# print(haRegex.search('He said "HaHaHaHa') != None)
+# works like slicing
+# eg {3,} has no upper bound (limit) to how many instances of the
+# regex can be found
+# by default regex in python is "greedy" = tries to match as much
+# as possible
+# "non greedy" match = {range here}?
+
+# r' = raw string
+# below will return all matches found, assigned to a variable will be
+# a list of strings
+# regex.search() only returns match objects
+# regex.search() with groups inside will return list with tuples
+# broken down by group
+
