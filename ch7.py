@@ -85,3 +85,5 @@ haRegex = re.compile(r'(Ha){3,5}')
 # create own character class (not druid, paladin, etc)
 vowelRegex = re.compile(r'[aeiouAEIOU]')
 print(vowelRegex.findall('Robocop eats baby food'))
+# adding {2} to the end of regex will return only when two of the characters in the regex are found together
+# ^ = not
