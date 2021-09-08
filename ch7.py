@@ -80,3 +80,8 @@ haRegex = re.compile(r'(Ha){3,5}')
 # regex.search() with groups inside will return list with tuples
 # broken down by group
 
+# [] = same as char|char|char
+# [a-fA-F] = ranges of chars that valid for expression
+# create own character class (not druid, paladin, etc)
+vowelRegex = re.compile(r'[aeiouAEIOU]')
+print(vowelRegex.findall('Robocop eats baby food'))
