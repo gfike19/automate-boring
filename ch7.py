@@ -22,50 +22,57 @@ message = "call me at 314-967-5309, or at 314-555-5555"
 phoneNumberRegex = re.compile('\d\d\d-\d\d\d-\d\d\d\d')
 # mo stands for match object
 mo = phoneNumberRegex.search(message)
-# mo.group() holds text that was found first
-# print(mo.group())
-# print(phoneNumberRegex.findall(message))
+mo.group() 
+# holds text that was found first
+print(mo.group())
+print(phoneNumberRegex.findall(message))
 # above will return list of all matches found
 
-# match 1 or one times = ?
+# The ? says the group matches zero or one times.
+# The * says the group matches zero or more times.
+# The + says the group matches one or more times.
+# The curly braces can match a specific number of times.
+# The curly braces with two numbers matches a minimum and maximum number of times.
+# Leaving out the first or second number in the curly braces says there is no minimum or maximum.
+# Putting a question mark after the curly braces makes it do a nongreedy/lazy match.
 batRegex = re.compile(r'Bat(wo)?man')
 mo = batRegex.search('The Adventures of Batman')
-# print(mo.group())
+print(mo.group())
 mo = batRegex.search('The Adventures of Batwoman')
-# print(mo.group())
+print(mo.group())
 
 phoneRegex = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
 mo = phoneRegex.search('My phone number is 415-555-1234. Call me'+
 'tomorrow')
 # above regex will work
-# print(mo.group())
+print(mo.group())
 mo = phoneRegex.search('My phone number is 555-1234. Call me'+
 'tomorrow')
 # this one won't
-# print(mo == None)
+print(mo == None)
 
 # to resolve, group first chunk and place ? beside it
 phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
-# print(phoneRegex.search('My phone number is 555-1234. Call me'+
-# 'tomorrow'))
+print(phoneRegex.search('My phone number is 555-1234. Call me'+
+'tomorrow'))
 
 # * star aka wildcard matach 0 or more times
 batRegex = re.compile(r'Bat(wo)*man')
 mo = batRegex.search('The Adventures of Batman')
-# print(mo.group())
+print(mo.group())
 mo = batRegex.search('The Adventures of Batwoman')
-# print(mo.group())
+print(mo.group())
 mo = batRegex.search('The Adventures of Batwowowoman')
-# print(mo.group())
+print(mo.group())
 
 # curly braces used for specific amount
 haRegex = re.compile(r'(Ha){3}')
-# print(haRegex.search('He said "HaHaHa'))
+print(haRegex.search('He said "HaHaHa'))
 # above returns true
 
 # can add in a second number for a range
 haRegex = re.compile(r'(Ha){3,5}')
-# print(haRegex.search('He said "HaHaHaHa') != None)
+print(haRegex.search('He said "HaHaHaHa') != None)
 # works like slicing
 # eg {3,} has no upper bound (limit) to how many instances of the
 # regex can be found
