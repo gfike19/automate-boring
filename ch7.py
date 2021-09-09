@@ -56,7 +56,7 @@ phoneRegex = re.compile(r'(\d\d\d-)?\d\d\d-\d\d\d\d')
 print(phoneRegex.search('My phone number is 555-1234. Call me'+
 'tomorrow'))
 
-# * star aka wildcard matach 0 or more times
+# * star = matach 0 or more times
 batRegex = re.compile(r'Bat(wo)*man')
 mo = batRegex.search('The Adventures of Batman')
 print(mo.group())
