@@ -31,3 +31,25 @@ print(atRegex.findall('the cat in the hat sat on the flat mat'))
 
 atRegex = re.compile(r'.*at')
 print(atRegex.findall('the cat in the hat sat on the flat mat'))
+
+# following kind of solves it though this wouldn't for input where we don't know what hard coded text is being sent
+nameRegex = re.compile(r'First Name: (.*) Last Name: (.*)')
+print(nameRegex.findall("First Name: Ada Last Name: Lovelace"))
+
+# .* by default is greedy, to make it not greedy .*?
+serve = "<To serve humans> for dinner.>"
+nongreedy = re.compile(r'<(.*?)>')
+print(nongreedy.findall(serve))
+greedy = re.compile(r'<(.*)>')
+print(greedy.findall(serve))
+
+# how to incorporate new line character into regex
+prime = "Serve the public trust.\nProtect the innocent.\nUphold the law.\n"
+# below won't print new line
+dotStar = re.compile(r'.*')
+print(dotStar.findall(prime))
+# this one will though
+dotStar = re.compile(r'.*', re.DOTALL)
+print(dotStar(prime))
+
+# re.IGNORECASE = self explanatory
