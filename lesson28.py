@@ -22,3 +22,5 @@ re.compile('''
 \d\d\d
 -
 \d\d\d\d''', re.VERBOSE)
+# can add more arguments after VERBOSE with | so VERBOSE | IGNORECASE
+# pyperclip allows you to take text from program and put it in the clipboard
