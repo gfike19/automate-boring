@@ -14,4 +14,5 @@ print(os.path.abspath("lesson30.py"))
 # os.path.basename(path) will return item that is at the end of the path
 # os.path.exists(path) boolean method that is self explanatory
 # similarly there is os.path.isfile(path) os.path.isdir(path)
-# 
+# os.path.getsize(path) will return size of object in bytes
+# os.listdir(path) = ls in whatever path
